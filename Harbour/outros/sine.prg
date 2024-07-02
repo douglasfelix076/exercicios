@@ -2,9 +2,12 @@
 
 while .t.
    clear
-   nTempo := Seconds()
+   nFrequencia := 0.1
+   nVelocidade := 4
+   nAmplitude := 7
+   nTempo := Seconds() *nVelocidade
    for nIndex := 0 to 79
-      nY := (sin(nTempo + nIndex/6) * 12.5) + 12.5
+      nY := (sin(nTempo + nIndex * nFrequencia) * nAmplitude) + 12.5 + (sin(nTempo + nIndex * nFrequencia * 0.5) * nAmplitude)
 
       cCaractere := 'Û'
 
