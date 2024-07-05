@@ -5,9 +5,10 @@ cMascaraQTD   := '999'
 cMascaraNome  := '@!'
 cMascaraValor := '@E 999.99'
 cMascaraTotal := '@E 9,999,999.99'
-cCorValores   := 'W/B+'
+cCorValor   := 'W/B+'
 cCorQtd       := 'BG+/B+'
 cCorTotal     := 'G/B+'
+cCorNome     := 'G/B+'
 
 cNomeA        := Space(10)
 cNomeB        := Space(10)
@@ -42,8 +43,8 @@ clear
 @ 02,00 to 10,43 double
 
 // Produto A
-@ 05,02 get cNomeA  picture cMascaraNome  valid !Empty(cNomeA)
-@ 05,15 get nPrecoA picture cMascaraValor valid nPrecoA > 0    color cCorValores
+@ 05,02 get cNomeA  picture cMascaraNome  valid !Empty(cNomeA) color cCorNome
+@ 05,15 get nPrecoA picture cMascaraValor valid nPrecoA > 0    color cCorValor
 @ 05,24 get nQtdA   picture cMascaraQTD   valid nQtdA >= 0     color cCorQtd
 read
 
@@ -54,8 +55,8 @@ nTotalGeral  += nTotalA
 @ 11,30 say nTotalGeral picture cMascaraTotal color cCorTotal
 
 // Produto B
-@ 07,02 get cNomeB  picture cMascaraNome  valid !Empty(cNomeB)
-@ 07,15 get nPrecoB picture cMascaraValor valid nPrecoB > 0    color cCorValores
+@ 07,02 get cNomeB  picture cMascaraNome  valid !Empty(cNomeB) color cCorNome
+@ 07,15 get nPrecoB picture cMascaraValor valid nPrecoB > 0    color cCorValor
 @ 07,24 get nQtdB   picture cMascaraQTD   valid nQtdB >= 0     color cCorQtd
 read
 
@@ -66,8 +67,8 @@ nTotalGeral  += nTotalB
 @ 11,30 say nTotalGeral picture cMascaraTotal color cCorTotal
 
 // Produto C
-@ 09,02 get cNomeC  picture cMascaraNome  valid !Empty(cNomeC)
-@ 09,15 get nPrecoC picture cMascaraValor valid nPrecoC > 0    color cCorValores
+@ 09,02 get cNomeC  picture cMascaraNome  valid !Empty(cNomeC) color cCorNome
+@ 09,15 get nPrecoC picture cMascaraValor valid nPrecoC > 0    color cCorValor
 @ 09,24 get nQtdC   picture cMascaraQTD   valid nQtdC >= 0     color cCorQtd
 read
 
