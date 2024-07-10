@@ -1,15 +1,25 @@
-// array para organizar (nao conheco nenhuma funcao para gerar numeros aleatorios)
-aArray := { 10, 25, 24, 1, 2, 21, 8, 4, 12, 7, 11, 9, 16, 15, 18, 23, 22, 3, 17, 13, 5, 20, 19, 14, 6 }
+clear
 
 // se nRepetir e falso a te o fim da iteracao
 // repete o algoritmo
 nRepetir := .t.
+nTamanho := 25 // tamanho da array
 
-nTamanho := len(aArray)
+aNumeros := Array(nTamanho)// array com numeros restantes para aleatoriza‡Æo
+aArray := Array(nTamanho) // array para organizar
 
-clear
+for nI := 1 to nTamanho
+   aNumeros[nI] := nI
+   aArray[nI] := nI
+next
+
+for nI := 1 to nTamanho
+   nAleatorio := 1 + Round(hb_Random() * (nTamanho - nI), 0)
+   aArray[nI] := aNumeros[nAleatorio]
+   ADel(aNumeros, nAleatorio)
+next
+
 Draw() // desenho inicial da lista
-
 inkey(0)
 
 while nRepetir
