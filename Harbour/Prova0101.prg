@@ -74,14 +74,15 @@ do while .t.
    @ 02,02 say 'O que deseja fazer?'
    @ 03,02 say '(I)nserir dados'
    @ 04,02 say '(N)ovo boletim'
-   @ 04,02 say '(V)er boletim'
+   @ 04,02 say '(V)er status'
    @ 05,02 say '(S)air do programa'
 
-   @ 23,50 say 'Credito: ' + Transform(nCredito, cMascaraTotal)
-
+   cEscolha  := ' '
    cEscolhas := 'INVS'
    @ 07,02 get cEscolha picture '@!' valid cEscolha $ cEscolhas
    read
+
+   @ 02,02 clear to 23,78
 
    if (cEscolha = 'I')
       do while .t.
@@ -108,31 +109,50 @@ do while .t.
                exit
             endif
          endif
+
+         lDadosInseridos := .t.
+         @ 20,02 say 'Pressione qualquer tecla para continuar...'
+         inkey(0)
+         exit
       enddo
 
    elseif (cEscolha = 'N')
       if (!lDadosInseridos)
-         Alert('Dados ainda nao inseridos.')
+         Alert('Dados ainda nao inseridos.', nil, 'N/W+')
          loop
       endif
 
       do while .t.
+
       enddo
 
    elseif (cEscolha = 'V')
       if (!lDadosInseridos)
-         Alert('Dados ainda nao inseridos.')
+         Alert('Dados ainda nao inseridos.', nil, 'N/W+')
          loop
       endif
 
-      do while .t.
-      enddo
+      @ 03,03 say 'Aluno : '
+      @ 04,03 say 'Status: '
+      @ 03,11 say cNome   color cCorTexto
+      @ 04,11 say cStatus color cCorStatus
 
+      @ 05,03 say 'Materias que nao atingiram o minimo: '
+      @ 05,40 say cMateriasReprovadas                                   color cCorDependencia
+      @ 06,03 say cMensalidade
+      @ 07,03 say 'Mensalidade final: '
+      @ 07,22 say AllTrim(Transform(nMensalidade, cMascaraValor)) + '$' color cCorTexto
+
+      @ 07,02 say 'Pressione qualquer tecla para continuar...'
+      inkey(0)
    elseif (cEscolha = 'S')
       exit
+
    endif
+   @ 02,02 clear to 23,78
 enddo
 
+/*
 
 @ 01,02 say 'Instituto Felix' color cCorTexto
 //@ 02,02 say 'Digite as informacoes'
@@ -300,3 +320,4 @@ do while .t.
    @ 20,22 say AllTrim(Transform(nMensalidade, cMascaraValor)) + '$' color cCorTexto
 enddo
 Inkey(0)
+*/
