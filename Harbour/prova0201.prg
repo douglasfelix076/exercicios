@@ -43,7 +43,7 @@ clear
 @ 01,02 say 'Frutaria Douglas'
 
 @ 05,06 to 13,44
-@ 05,12 say 'LÄOÄGÄIÄN'
+@ 05,12 say 'LÃ„OÃ„GÃ„IÃ„N'
 @ 07,12 say 'Digite suas Credenciais'
 @ 08,12 say 'Usuario:'
 @ 09,12 say 'Senha..:'
@@ -135,7 +135,7 @@ do while .t.
 
          @ 03,01 clear to 23,78
 
-         @ 04,07 say 'CODIGO ³ QTD | Desc ³ Produto                 ³ Valor ³    TOTAL'
+         @ 04,07 say 'CODIGO Â³ QTD | Desc Â³ Produto                 Â³ Valor Â³    TOTAL'
          @ 05,04 to 19,75
          @ 05,02 to 05,77
          @ 19,02 to 19,77
