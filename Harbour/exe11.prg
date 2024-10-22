@@ -1,38 +1,45 @@
-cNome      := Space(15)
-nIdade     := 0
-cCategoria := 'Nenhum'
-
-set scoreboard off
-set color to 'N/W+'
+// parte visual
 clear
+set scoreboard off
 @ 00,00 to 24,79 double
+@ 00,02 say 'exe11'
 
-@ 02,02 say 'Digite as informacoes do nadador'
-@ 03,02 say 'Nome : '
-@ 04,02 say 'Idade: '
+cNome          := Space(20)
+nIdade         := 0
+cClassificacao := ''
 
-@ 03,09 get cNome  picture '@!'  valid !Empty(cNome)
-@ 04,09 get nIdade picture '999' valid nIdade > 0
+@ 01,02 say 'Nome do nadador.:'
+@ 02,02 say 'Idade do nadador:'
+
+@ 01,20 get cNome  picture '@!'  valid !Empty(cNome)
+@ 02,20 get nIdade picture '999' valid nIdade >= 1
 read
 
-if (nIdade >= 18) // 18+
-   cCategoria := 'Senior'
-
-elseif (nIdade >= 14) // 14-17
-   cCategoria := 'Juvenil B'
-
-elseif (nIdade >= 11) // 11-13
-   cCategoria := 'Juvenil A'
-
-elseif (nIdade >= 8) // 8-10
-   cCategoria := 'Infantil B'
-
-elseif (nIdade >= 5) // 5-7
-   cCategoria := 'Infantil A'
-
+if (nIdade <= 4) // 1-5
+    cClassificacao := 'Nenhum'
+elseif (nIdade <= 7) // 5-7
+    cClassificacao := 'Infantil A'
+elseif (nIdade <= 10) // 8-10
+    cClassificacao := 'Infantil B'
+elseif (nIdade <= 13) // 11-13
+    cClassificacao := 'Juvenil A'
+elseif (nIdade <= 17) // 14-17
+    cClassificacao := 'Juvenil B'
+else // 18+
+    cClassificacao := 'Senior'
 endif
 
-@ 06,02 say 'O nadador ' + AllTrim(cNome) + ' esta classificado na categoria: ' + cCategoria
-@ 22,02 say 'Pressione qualquer tecla para continuar...'
+@ 04,02 say 'Nadador......: ' + AllTrim(cNome) + '.'
+@ 05,02 say 'Classificacao: ' + cClassificacao + '.'
 
-inkey(0)
+
+
+
+
+
+
+
+
+
+@ 23,02 say 'Pressione qualquer tecla para continuar...'
+Inkey(0)

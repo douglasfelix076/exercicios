@@ -1,14 +1,14 @@
+// parte visual
 clear
+set scoreboard off
+@ 00,00 to 24,79 double
+@ 00,02 say 'exe03'
 
-nNumero1 := 0
-nNumero2 := 0
-
-@ 00,00 say "Numero 1: "
-@ 01,00 say "Numero 2: "
-@ 00,10 get nNumero1
-@ 01,10 get nNumero2
-read
-
+nNumero1 := 3
+nNumero2 := 4
 nProduto := nNumero1 * nNumero2
 
-@ 03,00 say "o produto do numero " +  str(nNumero1) + " e " + str(nNumero2) + " eh: " + str(nProduto) + "."
+@ 01,02 say 'O produto dos numeros ' + AllTrim(Str(nNumero1)) + ' e ' + AllTrim(Str(nNumero2)) + ' eh ' + AllTrim(Str(nProduto)) + '.'
+
+@ 23,02 say 'Pressione qualquer tecla para continuar...'
+inkey(0)

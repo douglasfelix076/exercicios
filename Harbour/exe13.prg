@@ -1,33 +1,33 @@
-nCodigo   := 0
-cClass    := ''
-lInvalido := .f.
-
-set scoreboard off
-set color to 'N/W+'
+// parte visual
 clear
+set scoreboard off
 @ 00,00 to 24,79 double
+@ 00,02 say 'exe13'
 
-@ 02,02 say 'Digite o codigo do produto:'
-@ 02,30 get nCodigo picture '999'
+nCodigo        := 0
+cClassificacao := ''
+@ 01,02 say 'Digite o codigo do produto:'
+
+@ 01,30 get nCodigo picture '999' valid nCodigo > 0
 read
 
-if (nCodigo = 1)
-   cClass := 'Alimento nao-perecivel'
-elseif (nCodigo >= 2 .and. nCodigo <= 4)
-   cClass := 'Alimento perecivel'
-elseif (nCodigo >= 5 .and. nCodigo <= 6)
-   cClass := 'Vestuario'
-elseif (nCodigo = 7)
-   cClass := 'Higiene pessoal'
-elseif (nCodigo >= 8 .and. nCodigo <= 15)
-   cClass := 'Limpeza e utensilios domesticos'
-else
-   lInvalido := .t.
+if nCodigo == 1 // 1
+    cClassificacao = 'Alimento nao-perecivel'
+elseif nCodigo <= 4 // 2-4
+    cClassificacao = 'Alimento perecivel'
+elseif nCodigo <= 6 // 5-6
+    cClassificacao = 'Vestuario'
+elseif nCodigo == 7 // 7
+    cClassificacao = 'Higiene pessoal'
+elseif nCodigo <= 15 // 8-15
+    cClassificacao = 'Limpeza e utensilios domesticos'
 endif
 
-if (lInvalido)
-   @ 04,02 say 'Codigo de produto invalido (' + AllTrim(Str(nCodigo)) + ').' color 'R/N'
+if (cClassificacao == '')
+    @ 03,02 say 'Codigo de produto invalido.'
 else
-   @ 04,02 say 'Classificacao do produto (' + AllTrim(Str(nCodigo)) + ') : ' + cClass +'.'
-end
+    @ 03,02 say 'Classificacao do produto: ' + cClassificacao + '.'
+endif
 
+@ 23,02 say 'Pressione qualquer tecla para continuar...'
+Inkey(0)

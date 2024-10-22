@@ -1,15 +1,17 @@
 clear
+@ 00,00 to 24,79
 
-nNumeroA := 0
-nNumeroB := 0
+nNumero1 := 0
+nNumero2 := 0
 
-@ 00,01 say 'Digite o numero A: '
-@ 01,01 say 'Digite o numero B: '
-@ 00,20 get nNumeroA
-@ 01,20 get nNumeroB
+@ 01,02 say 'Numero 1:'
+@ 02,02 say 'Numero 2:'
+
+@ 01,12 get nNumero1
+@ 02,12 get nNumero2
 read
 
-@ 03,01 say 'A + B: ' + str(nNumeroA + nNumeroB)
-@ 04,01 say 'A - B: ' + str(nNumeroA - nNumeroB)
-@ 05,01 say 'A * B: ' + str(nNumeroA * nNumeroB)
-@ 06,01 say 'A / B: ' + str(nNumeroA / nNumeroB)
+@ 04,02 say alltrim(str(nNumero1)) + ' + ' + alltrim(str(nNumero2)) + ': ' + alltrim(str(nNumero1 + nNumero2))
+@ 05,02 say alltrim(str(nNumero1)) + ' - ' + alltrim(str(nNumero2)) + ': ' + alltrim(str(nNumero1 - nNumero2))
+@ 06,02 say alltrim(str(nNumero1)) + ' / ' + alltrim(str(nNumero2)) + ': ' + alltrim(str(nNumero1 / nNumero2))
+@ 07,02 say alltrim(str(nNumero1)) + ' * ' + alltrim(str(nNumero2)) + ': ' + alltrim(str(nNumero1 * nNumero2))

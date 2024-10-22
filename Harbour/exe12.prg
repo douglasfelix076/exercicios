@@ -1,34 +1,34 @@
-nLinha   := 0
-nNumeroA := 0
-nNumeroB := 0
-nNumeroC := 0
-nMaior   := 0
-cMascara := '9999'
-
-set scoreboard off
-set color to 'N/W+'
+// parte visual
 clear
+set scoreboard off
 @ 00,00 to 24,79 double
+@ 00,02 say 'exe12'
 
-@ 02,02 say 'Digite tres numeros:'
-@ 03,02 say 'A: '
-@ 04,02 say 'B: '
-@ 05,02 say 'C: '
-@ 03,05 get nNumeroA picture cMascara
-@ 04,05 get nNumeroB picture cMascara
-@ 05,05 get nNumeroC picture cMascara
+nNumeroA     := 0
+nNumeroB     := 0
+nNumeroC     := 0
+nMaiorNumero := 0
+
+@ 01,02 say 'Numero A:'
+@ 02,02 say 'Numero B:'
+@ 03,02 say 'Numero C:'
+
+@ 01,12 get nNumeroA picture '999'
+@ 02,12 get nNumeroB picture '999'
+@ 03,12 get nNumeroC picture '999'
 read
 
-nMaior := nNumeroA
-if nMaior < nNumeroB
-   nMaior := nNumeroB
-endif
-if nMaior < nNumeroC
-   nMaior := nNumeroC
+nMaiorNumero := nNumeroA
+
+if nNumeroB > nMaiorNumero
+    nMaiorNumero := nNumeroB
 endif
 
-@ 06,02 say 'O maior numero eh: ' + alltrim(str(nMaior)) + '.'
+if nNumeroC > nMaiorNumero
+    nMaiorNumero := nNumeroC
+endif
 
-@ 22,02 say 'Pressione qualquer tecla para continuar...'
-inkey(0)
-clear
+@ 05,02 say 'O maior numero eh: ' + AllTrim(Str(nMaiorNumero)) + '.'
+
+@ 23,02 say 'Pressione qualquer tecla para continuar...'
+Inkey(0)
