@@ -34,7 +34,7 @@ nColuna           := 0
 nDiaContador      := 0
 cCorDia           := 'W/N'
 
-@ 01,02 say 'Digite usa data de aniversario:'
+@ 01,02 say 'Digite sua data de aniversario:'
 
 @ 01,34 get dDataAniversario valid dDataAniversario <= Date()
 read
@@ -155,8 +155,8 @@ elseif nSemanaProximo == 7
 endif
 
 // RESULTADOS
-@ 03,02 say 'data de nascimento em extenso.......: ' + AllTrim(Str(nDiaAniversario)) + ' de ' + cMesExtenso + ' de ' + AllTrim(Str(nAnoAniversario))
-@ 04,02 say 'dia da semana de nascimento.........: ' + cSemanaExtenso
+@ 03,02 say 'Data de nascimento em extenso.......: ' + AllTrim(Str(nDiaAniversario)) + ' de ' + cMesExtenso + ' de ' + AllTrim(Str(nAnoAniversario))
+@ 04,02 say 'Dia da semana de nascimento.........: ' + cSemanaExtenso
 @ 05,02 say 'Idade...............................: ' + AllTrim(Str(nIdade))
 @ 06,02 say 'Signo...............................: ' + cSigno
 @ 07,02 say 'Proximo aniversario em..............: ' + AllTrim(Str(nMesesRestantes)) + ' meses e ' + AllTrim(Str(nDiasRestantes)) + ' dias'
