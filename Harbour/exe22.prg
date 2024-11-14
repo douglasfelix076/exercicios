@@ -1,7 +1,5 @@
-// parte visual
-//set color to 'N/W'
-clear
 set scoreboard off
+clear
 @ 00,00 to 24,79 double
 @ 00,02 say 'exe22'
 
@@ -102,15 +100,6 @@ nMesada -= nTotalCompra
 @ 02,24 say nTotalCompra picture cMascaraTotal color cCorVerde
 @ 03,02 say 'Novo valor da mesada:'
 @ 03,24 say nMesada picture cMascaraTotal color cCorVerde
-
-
-
-
-
-
-
-
-
 
 @ 23,02 say 'Pressione qualquer tecla para continuar...'
 Inkey(0)

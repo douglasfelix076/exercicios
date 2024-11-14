@@ -1,6 +1,5 @@
-// parte visual
-clear
 set scoreboard off
+clear
 @ 00,00 to 24,79 double
 @ 00,02 say 'exe19'
 
